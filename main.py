@@ -6,6 +6,7 @@ from database.operation import DataProcessor
 from processing.calculations import DataCalculation
 from sqlalchemy.ext.declarative import declarative_base
 from visualization.plots import VisualizeData
+from unit_test.test import TestMethod
 # import bokeh modules 
 
 
@@ -21,7 +22,7 @@ if __name__ == "__main__":
     #Generating columns
     data_processor_instance.generating_columns()
 
-    #Data reading
+    #Data_reading
     df_ideal, df_train, df_test = data_processor_instance.data_loading()
 
     # #determine the 4 ideal functions/lists
@@ -37,6 +38,8 @@ if __name__ == "__main__":
     #Visualize data
     visualizer = VisualizeData(df_test, df_train, df_ideal)
     visualizer.visualize()
-
+    tester = TestMethod(df_test, df_train, df_ideal)
+    tester.test_ideal_function()
+    tester.test_deviations_calculation()
 
 
