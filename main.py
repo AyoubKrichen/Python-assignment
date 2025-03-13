@@ -38,7 +38,8 @@ if __name__ == "__main__":
     #Visualize data
     visualizer = VisualizeData(df_test, df_train, df_ideal)
     visualizer.visualize()
-    tester = TestMethod(df_test, df_train, df_ideal)
+    tester = TestMethod()
+    tester.setUp()
     tester.test_ideal_function()
     tester.test_deviations_calculation()
 
